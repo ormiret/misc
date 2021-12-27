@@ -3,7 +3,8 @@ import sugar, json, strformat, karax/kajax, uri
 include karax/prelude
 
 var earthAge, desiredAge : float
-var res : VNode
+var res = buildHtml():
+  tdiv(class="loading")
 
 var planets: seq[tuple[name:string, period:float]]
 
