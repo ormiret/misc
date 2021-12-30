@@ -9,10 +9,10 @@ var timer: TimeOut
 proc render(): VNode =
   proc setProgs() =
     var n = now()
+    timer = setTimeout(setProgs, 1000-int(n.nanosecond/1e6.int))
     progs = @[("Minute", n.second/60), ("Hour", n.minute/60), ("Day", n.hour/24),
     ("Week", ord(n.weekDay)/ord(high(WeekDay))), ("Month", n.monthday/getDaysInMonth(n.month, n.year)),
     ("Year", n.yearday/getDaysInYear(n.year))]
-    timer = setTimeout(setProgs, int(n.nanosecond/1e6.int))
     redraw()
   timer = setTimeout(setProgs, 10)
 
