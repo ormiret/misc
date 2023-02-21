@@ -43,7 +43,7 @@ while True:
         if not s["lastchange"] == os["lastchange"]:
             os = s
             if s["open"]:
-                action = "openeed"
+                action = "opened"
             else:
                 action = "closed"
             who = s["trigger_person"]
